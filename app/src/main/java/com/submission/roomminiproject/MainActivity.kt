@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private var mViewModel: MainViewModel?= null
     private val appPreferences: AppPreferences by inject()
 
+    // test
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
