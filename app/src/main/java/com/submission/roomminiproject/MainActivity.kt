@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private val appPreferences: AppPreferences by inject()
 
     // test
+    // test laptop
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
