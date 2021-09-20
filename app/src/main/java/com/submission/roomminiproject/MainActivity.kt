@@ -16,18 +16,18 @@ import com.submission.roomminiproject.ViewModel.MainViewModel
 import com.submission.roomminiproject.ViewModel.ViewModelFactory
 import com.submission.roomminiproject.databinding.ActivityMainBinding
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.reflect.KProperty
 
 
 class MainActivity : AppCompatActivity() {
 
 
     private var binding: ActivityMainBinding? = null
-    private var mAdaper: ArticleAdapter?= null
-    private var mViewModel: MainViewModel?= null
-    private val appPreferences: AppPreferences by inject()
 
-    // test
-    // test laptop
+    private var mAdaper: ArticleAdapter?= null
+    private val mainViewModel by viewModel<MainViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,14 +35,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        val factory = ViewModelFactory.getInstance(application)
-        mViewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
+//        val factory = ViewModelFactory.getInstance(application)
+//        mainViewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
 
         initView()
         observeLiveData()
 
-        val getTitle = appPreferences.getTitle()
-//        Toast.makeText(this, getTitle, Toast.LENGTH_SHORT).show()
 
 
         binding?.fabAdd?.setOnClickListener { view ->
@@ -55,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeLiveData() {
-        mViewModel?.getAllArticleList()?.observe(this, Observer {
+        mainViewModel?.getAllArticleList()?.observe(this, Observer {
             initAdapter(it)
         })
     }

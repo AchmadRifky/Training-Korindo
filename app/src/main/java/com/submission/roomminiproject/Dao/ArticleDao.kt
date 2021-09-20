@@ -1,4 +1,4 @@
-package com.submission.roomminiproject.Database
+package com.submission.roomminiproject.Dao
 
 
 import androidx.lifecycle.LiveData
@@ -16,6 +16,6 @@ interface ArticleDao {
     @Delete
     fun delete(article: Article)
 
-    @Query("SELECT * from article ORDER BY id ASC")
+    @Query("SELECT * from article_table ORDER BY id ASC")
     fun getAllArticle(): LiveData<List<Article>>
 }

@@ -2,7 +2,7 @@ package com.submission.roomminiproject.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.submission.roomminiproject.Database.ArticleRepository
+import com.submission.roomminiproject.Repository.ArticleRepository
 import com.submission.roomminiproject.Model.Article
 
 class MainViewModel(application: Application): AndroidViewModel(application) {

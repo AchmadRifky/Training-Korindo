@@ -1,13 +1,9 @@
-package com.submission.roomminiproject.Database
+package com.submission.roomminiproject.Repository
 
 import android.app.Application
-import android.content.Context
-import android.provider.ContactsContract
-import androidx.lifecycle.LiveData
+import com.submission.roomminiproject.Dao.ArticleDao
+import com.submission.roomminiproject.Database.ArticleRoomDatabase
 import com.submission.roomminiproject.Model.Article
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -19,6 +15,7 @@ class ArticleRepository(private var application: Application){
     init{
         mDao = ArticleRoomDatabase.getDatabase(application).articleDao()
     }
+
 
     fun getAllArticle() = mDao.getAllArticle()
 

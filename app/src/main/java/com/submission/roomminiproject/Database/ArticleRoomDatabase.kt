@@ -5,12 +5,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.submission.roomminiproject.Constant
+import com.submission.roomminiproject.Dao.ArticleDao
+import com.submission.roomminiproject.Dao.RegisterDao
 import com.submission.roomminiproject.Model.Article
+import com.submission.roomminiproject.Model.Register
 
-@Database(entities = [Article::class], version = 1, exportSchema = false)
+@Database(entities = [Article::class, Register::class], version = 1, exportSchema = false)
 abstract class ArticleRoomDatabase: RoomDatabase() {
 
     abstract fun articleDao(): ArticleDao
+    abstract fun registerDao(): RegisterDao
 
     companion object{
         @Volatile
