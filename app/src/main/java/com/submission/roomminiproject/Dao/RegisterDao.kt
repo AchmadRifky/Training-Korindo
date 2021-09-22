@@ -3,20 +3,20 @@ package com.submission.roomminiproject.Dao
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.submission.roomminiproject.Model.Article
 import com.submission.roomminiproject.Model.Register
 
 @Dao
 interface RegisterDao {
-    @Insert
-    suspend fun insert(register: Register)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insert(register: Register)
 
-    @Query("SELECT * FROM register_table")
-    fun getAllUser(): LiveData<List<Register>>
+    @Query("SELECT * from register_table ORDER BY id ASC")
+    fun getAlluser(): LiveData<List<Register>>
 
-    @Query("DELETE FROM register_table")
-    suspend fun deleteAll(): Int
 
-    @Query("SELECT * FROM register_table WHERE username LIKE username")
-    suspend fun getUsername(username: String): Register
+    @Query("SELECT * FROM REGISTER_TABLE WHERE username=:un and password=:pass ")
+    fun validateRegister(un : String, pass : String): LiveData<List<Register>>
 }

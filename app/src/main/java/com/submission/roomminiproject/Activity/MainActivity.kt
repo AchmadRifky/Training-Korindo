@@ -1,24 +1,18 @@
-package com.submission.roomminiproject
+package com.submission.roomminiproject.Activity
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.submission.roomminiproject.Adapter.ArticleAdapter
 import com.submission.roomminiproject.Model.Article
+import com.submission.roomminiproject.R
 import com.submission.roomminiproject.ViewModel.MainViewModel
-import com.submission.roomminiproject.ViewModel.ViewModelFactory
 import com.submission.roomminiproject.databinding.ActivityMainBinding
-import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.reflect.KProperty
 
 
 class MainActivity : AppCompatActivity() {

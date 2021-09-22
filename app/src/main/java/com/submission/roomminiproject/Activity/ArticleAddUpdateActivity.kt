@@ -1,4 +1,4 @@
-package com.submission.roomminiproject
+package com.submission.roomminiproject.Activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.submission.roomminiproject.Model.Article
+import com.submission.roomminiproject.R
 import com.submission.roomminiproject.ViewModel.ArticleAddUpdateViewModel
 import com.submission.roomminiproject.ViewModel.ViewModelFactory
 import com.submission.roomminiproject.databinding.ActivityArticleAddUpdateBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleAddUpdateActivity : AppCompatActivity() {
     companion object {
@@ -29,7 +31,7 @@ class ArticleAddUpdateActivity : AppCompatActivity() {
     private var position = 0
 
     private lateinit var binding: ActivityArticleAddUpdateBinding
-    private lateinit var articleAddUpdateViewModel: ArticleAddUpdateViewModel
+    private val articleAddUpdateViewModel by viewModel<ArticleAddUpdateViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +40,8 @@ class ArticleAddUpdateActivity : AppCompatActivity() {
         binding = ActivityArticleAddUpdateBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        val factory = ViewModelFactory.getInstance(application)
-       articleAddUpdateViewModel = ViewModelProvider(this, factory).get(ArticleAddUpdateViewModel::class.java)
+//        val factory = ViewModelFactory.getInstance(application)
+//       articleAddUpdateViewModel = ViewModelProvider(this, factory).get(ArticleAddUpdateViewModel::class.java)
 
         article = intent.getParcelableExtra(EXTRA_NOTE)
         if (article != null) {

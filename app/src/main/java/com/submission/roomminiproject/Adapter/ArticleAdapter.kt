@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.submission.roomminiproject.ArticleAddUpdateActivity
+import com.submission.roomminiproject.Activity.ArticleAddUpdateActivity
 import com.submission.roomminiproject.Helper.ArticleDiffCallback
 import com.submission.roomminiproject.Model.Article
 import com.submission.roomminiproject.databinding.ItemArticleBinding

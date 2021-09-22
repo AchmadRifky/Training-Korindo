@@ -10,7 +10,10 @@ import com.submission.roomminiproject.Dao.RegisterDao
 import com.submission.roomminiproject.Model.Article
 import com.submission.roomminiproject.Model.Register
 
-@Database(entities = [Article::class, Register::class], version = 1, exportSchema = false)
+@Database(entities = [
+    Article::class,
+    Register::class], version = 2, exportSchema = false)
+
 abstract class ArticleRoomDatabase: RoomDatabase() {
 
     abstract fun articleDao(): ArticleDao

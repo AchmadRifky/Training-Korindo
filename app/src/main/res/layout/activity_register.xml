@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".RegisterActivity"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    tools:context=".Activity.RegisterActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -56,8 +56,8 @@
             android:id="@+id/edt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password"
             android:inputType="textCapSentences"
+            android:hint="@string/password"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
