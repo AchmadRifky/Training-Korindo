@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.submission.roomminiproject.Database.ArticleRoomDatabase
 import com.submission.roomminiproject.Model.Register
@@ -52,13 +53,23 @@ class RegisterActivity : AppCompatActivity(){
                     register?.password = password
                 }
 
-                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                intent.putExtra(EXTRA_NOTE, user)
-                intent.putExtra(EXTRA_POSITION, position)
-                startActivity(intent)
-                registerViewModel.insert(user as Register)
-                setResult(RESULT_ADD, intent)
+                if(validateInput(user!!)){
+                    Toast.makeText(applicationContext, "Fill all field", Toast.LENGTH_SHORT).show()
+                }else{
+                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    intent.putExtra(EXTRA_NOTE, user)
+                    intent.putExtra(EXTRA_POSITION, position)
+                    startActivity(intent)
+                    registerViewModel.insert(user as Register)
+                    setResult(RESULT_ADD, intent)
+                }
             }
         }
-    }
 
+    private fun validateInput(user: Register): Boolean{
+        if(user.username?.isEmpty() == true || user.email?.isEmpty() == true || user.password?.isEmpty() == true){
+            return true
+        }
+        return false
+    }
+}

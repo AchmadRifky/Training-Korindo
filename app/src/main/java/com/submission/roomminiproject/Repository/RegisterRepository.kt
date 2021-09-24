@@ -7,7 +7,7 @@ import com.submission.roomminiproject.Model.Register
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class RegisterRepository(private var application: Application) {
+class RegisterRepository(application: Application) {
 
     var mDao: RegisterDao
     val executor: ExecutorService = Executors.newSingleThreadExecutor()
@@ -19,9 +19,10 @@ class RegisterRepository(private var application: Application) {
     fun insert(user: Register){
         executor.execute { mDao.insert(user) }
     }
+//
+//    fun validateRegister(username: String){
+//        executor.execute { mDao.validateRegister(username)}
+//    }
 
-    fun validateRegister(username: String, password: String){
-        executor.execute { mDao.validateRegister(username, password) }
-    }
-
+    fun getUsernameList(username: String, password: String) = mDao.validateRegister(username, password)
 }

@@ -17,6 +17,6 @@ interface RegisterDao {
     fun getAlluser(): LiveData<List<Register>>
 
 
-    @Query("SELECT * FROM REGISTER_TABLE WHERE username=:un and password=:pass ")
-    fun validateRegister(un : String, pass : String): LiveData<List<Register>>
+    @Query("SELECT * FROM REGISTER_TABLE WHERE username=:un AND password =:pass" )
+    fun validateRegister(un : String, pass: String): LiveData<List<Register>>
 }

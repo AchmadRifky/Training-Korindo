@@ -22,4 +22,10 @@ class RegisterViewModel(application: Application): ViewModel() {
     fun insert(user: Register){
         mRepository?.insert(user)
     }
+
+
+
+
+
+
 }
