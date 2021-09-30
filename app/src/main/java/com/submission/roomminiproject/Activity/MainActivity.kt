@@ -3,12 +3,11 @@ package com.submission.roomminiproject.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.submission.roomminiproject.Adapter.ArticleAdapter
 import com.submission.roomminiproject.Model.Article
+import com.submission.roomminiproject.Object.MessageUtil
 import com.submission.roomminiproject.R
 import com.submission.roomminiproject.ViewModel.MainViewModel
 import com.submission.roomminiproject.databinding.ActivityMainBinding
@@ -17,9 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-
     private var binding: ActivityMainBinding? = null
-
     private var mAdaper: ArticleAdapter?= null
     private val mainViewModel by viewModel<MainViewModel>()
 
@@ -34,8 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         initView()
         observeLiveData()
-
-
 
         binding?.fabAdd?.setOnClickListener { view ->
             if (view.id == R.id.fab_add) {
@@ -75,19 +70,15 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (data != null) {
             if (requestCode == ArticleAddUpdateActivity.REQUEST_ADD) {
-                    showSnackbarMessage(getString(R.string.added))
+                    MessageUtil.SnackBar(this, getString(R.string.added))
             } else if (requestCode == ArticleAddUpdateActivity.REQUEST_UPDATE) {
                 if (resultCode == ArticleAddUpdateActivity.RESULT_UPDATE) {
-                    showSnackbarMessage(getString(R.string.changed))
+                    MessageUtil.SnackBar(this, getString(R.string.changed))
                 } else if (resultCode == ArticleAddUpdateActivity.RESULT_DELETE) {
-                    showSnackbarMessage(getString(R.string.deleted))
+                    MessageUtil.SnackBar(this, getString(R.string.deleted))
                 }
             }
         }
-    }
-
-    private fun showSnackbarMessage(message: String) {
-        Snackbar.make(binding?.root as View, message, Snackbar.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {

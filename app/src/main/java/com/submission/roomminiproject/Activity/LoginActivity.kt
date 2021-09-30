@@ -41,12 +41,6 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                 })
-//                if(getUser?.username == username || getUser?.password == password){
-//                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//                    startActivity(intent)
-//                }else{
-//                    Toast.makeText(applicationContext, "Check field", Toast.LENGTH_SHORT).show()
-//                }
             }
         }
 
