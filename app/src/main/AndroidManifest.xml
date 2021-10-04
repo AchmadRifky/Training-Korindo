@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomMiniProject">
         <activity
+            android:name=".Activity.ButtomNavigationActivity"
+            android:exported="true"
+            android:label="@string/title_activity_buttom_navigation" />
+        <activity
             android:name=".Activity.LoginActivity"
             android:exported="true" />
         <activity
@@ -23,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ArticleAddUpdateActivity" />
-        <activity android:name=".Activity.MainActivity"/>
+        <activity android:name=".Activity.MainActivity" />
     </application>
 
 </manifest>

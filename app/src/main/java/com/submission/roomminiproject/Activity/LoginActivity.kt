@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
                         0 -> Toast.makeText(this, "username tidak dikenal", Toast.LENGTH_SHORT).show()
                         else -> {
                             //pindah ke acitivity lain
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val intent = Intent(this@LoginActivity, ButtomNavigationActivity::class.java)
                             startActivity(intent)
                         }
                     }

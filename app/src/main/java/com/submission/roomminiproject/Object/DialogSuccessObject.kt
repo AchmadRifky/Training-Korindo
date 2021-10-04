@@ -47,6 +47,4 @@ object DialogSuccessObject : AppCompatActivity(){
         }
         return dialog_popup
     }
-
-
 }
