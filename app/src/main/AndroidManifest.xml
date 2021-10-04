@@ -29,5 +29,4 @@
         <activity android:name=".Activity.ArticleAddUpdateActivity" />
         <activity android:name=".Activity.MainActivity" />
     </application>
-
 </manifest>
